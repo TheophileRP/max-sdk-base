@@ -835,7 +835,7 @@ void jgraphics_diagonal_line_fill(t_jgraphics *g, double pixels, double x, doubl
 
 /**	Enumeration of slanting options for font display.
 	@ingroup	jfont			*/
-typedef enum _jgraphics_font_slant {
+typedef enum _jgraphics_font_slant : long{
 	JGRAPHICS_FONT_SLANT_NORMAL,		///< Normal slanting (typically this means no slanting)
 	JGRAPHICS_FONT_SLANT_ITALIC 		///< Italic slanting
 	// JGRAPHICS_FONT_SLANT_OBLIQUE		
@@ -844,7 +844,7 @@ typedef enum _jgraphics_font_slant {
 
 /**	Enumeration of font weight options for font display.
 	@ingroup	jfont			*/
-typedef enum _jgraphics_font_weight {
+typedef enum _jgraphics_font_weight : long{
 	JGRAPHICS_FONT_WEIGHT_NORMAL,		///< Normal font weight
 	JGRAPHICS_FONT_WEIGHT_BOLD			///< Bold font weight
 } t_jgraphics_font_weight;
@@ -1881,13 +1881,13 @@ void jbox_fontface_to_weight_slant(t_object *b, long *weight, long *slant);
 	@ingroup	jfont
 	@param	b	An object's box.
 	@return		A value from the #t_jgraphics_font_weight enum.	*/
-long jbox_get_font_weight(t_object *b);
+t_jgraphics_font_weight jbox_get_font_weight(t_object *b);
 
 /**	Get the slant box's font.
 	@ingroup	jfont
 	@param	b	An object's box.
 	@return		A value from the #t_jgraphics_font_slant enum.	*/
-long jbox_get_font_slant(t_object *b);
+t_jgraphics_font_slant jbox_get_font_slant(t_object *b);
 
 // create a jfont object for box -- internal use only
 t_jfont *jbox_createfont(t_object *b);
