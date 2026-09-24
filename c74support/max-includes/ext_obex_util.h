@@ -48,10 +48,10 @@ BEGIN_USING_C_LINKAGE
 	@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 */
 #define CLASS_ATTR_CHAR(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(char), "structmember must be char type"); \
 		class_addattr((c),attr_offset_new(attrname,USESYM(char),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 
 /**
@@ -66,10 +66,10 @@ BEGIN_USING_C_LINKAGE
 */
 
 #define CLASS_ATTR_LONG(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(long), "structmember must be long type"); \
 			class_addattr((c),attr_offset_new(attrname,USESYM(long),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 /**
 	Create a t_atom_long integer attribute and add it to a Max class.
@@ -83,10 +83,10 @@ BEGIN_USING_C_LINKAGE
 */
 
 #define CLASS_ATTR_ATOM_LONG(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(t_atom_long), "structmember must be t_atom_long type"); \
 			class_addattr((c),attr_offset_new(attrname,USESYM(atom_long),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 /**
 	Create a t_int32 integer attribute and add it to a Max class.
@@ -100,16 +100,16 @@ BEGIN_USING_C_LINKAGE
 */
 
 #define CLASS_ATTR_INT32(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(t_int32), "structmember must be t_int32 type"); \
 			class_addattr((c),attr_offset_new(attrname,USESYM(int32),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 #define CLASS_ATTR_FILEPATH(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(t_filepath), "structmember must be t_filepath type"); \
 			class_addattr((c),attr_offset_new(attrname,USESYM(filepath),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 /**
 	Create a 32-bit float attribute and add it to a Max class.
@@ -122,10 +122,10 @@ BEGIN_USING_C_LINKAGE
 	@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 */
 #define CLASS_ATTR_FLOAT(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(float), "structmember must be float type"); \
 		class_addattr((c),attr_offset_new(attrname,USESYM(float32),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 
 /**
@@ -139,10 +139,10 @@ BEGIN_USING_C_LINKAGE
 	@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 */
 #define CLASS_ATTR_DOUBLE(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(double), "structmember must be double type"); \
 		class_addattr((c),attr_offset_new(attrname,USESYM(float64),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 
 /**
@@ -156,10 +156,10 @@ BEGIN_USING_C_LINKAGE
 	@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 */
 #define CLASS_ATTR_SYM(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(t_symbol*), "structmember must be t_symbol* type"); \
 		class_addattr((c),attr_offset_new(attrname,USESYM(symbol),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 
 /**
@@ -173,10 +173,10 @@ BEGIN_USING_C_LINKAGE
 	@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 */
 #define CLASS_ATTR_ATOM(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(t_atom), "structmember must be t_atom type"); \
 		class_addattr((c),attr_offset_new(attrname,USESYM(atom),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 
 /**
@@ -190,10 +190,10 @@ BEGIN_USING_C_LINKAGE
 	@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 */
 #define CLASS_ATTR_OBJ(c,attrname,flags,structname,structmember) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember)==sizeof(t_object*), "structmember must be t_object* type"); \
 		class_addattr((c),attr_offset_new(attrname,USESYM(object),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 /**
 	Create an array-of-chars attribute of fixed length, and add it to a Max class.
@@ -222,10 +222,10 @@ BEGIN_USING_C_LINKAGE
 	@param	size			The number of longs in the array.
 */
 #define CLASS_ATTR_LONG_ARRAY(c,attrname,flags,structname,structmember,size) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember[0])==sizeof(long), "structmember must be long type"); \
 			class_addattr((c),attr_offset_array_new(attrname,USESYM(long),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 /**
 	Create an array-of-t_atom_long-integers attribute of fixed length, and add it to a Max class.
@@ -239,10 +239,10 @@ BEGIN_USING_C_LINKAGE
 	@param	size			The number of longs in the array.
 */
 #define CLASS_ATTR_ATOM_LONG_ARRAY(c,attrname,flags,structname,structmember,size) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember[0])==sizeof(t_atom_long), "structmember must be t_atom_long type"); \
 			class_addattr((c),attr_offset_array_new(attrname,USESYM(atom_long),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 
 /**
@@ -257,10 +257,10 @@ BEGIN_USING_C_LINKAGE
 	@param	size			The number of floats in the array.
 */
 #define CLASS_ATTR_FLOAT_ARRAY(c,attrname,flags,structname,structmember,size) \
-	{			\
+	do{			\
 		C74_STATIC_ASSERT(structmembersize(structname, structmember[0])==sizeof(float), "structmember must be float type"); \
 		class_addattr((c), attr_offset_array_new(attrname, USESYM(float32), (size), (flags), (method)0L, (method)0L, 0/*fix*/, calcoffset(structname, structmember))); \
-	}
+	}while(0)
 
 
 /**
@@ -354,10 +354,10 @@ BEGIN_USING_C_LINKAGE
 	@param	maxsize			The maximum number of items in the long array, i.e. the number of members allocated for the array in the struct.
 */
 #define CLASS_ATTR_LONG_VARSIZE(c,attrname,flags,structname,structmember,sizemember,maxsize) \
-		{		\
+		do{		\
 			C74_STATIC_ASSERT(structmembersize(structname,structmember[0])==sizeof(long), "structmember must be t_atom_long type"); \
 			class_addattr((c),attr_offset_array_new(attrname,USESYM(long),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember))); \
-		}
+		}while(0)
 
 /**
 	Create an array-of-32bit-floats attribute of variable length, and add it to a Max class.
@@ -984,9 +984,9 @@ BEGIN_USING_C_LINKAGE
 							or NULL to use the default setter.
 */
 #define CLASS_ATTR_ACCESSORS(c,attrname,getter,setter) \
-	{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
+	do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
 		object_method(theattr,gensym("setmethod"),USESYM(get),getter); \
-		object_method(theattr,gensym("setmethod"),USESYM(set),setter); }
+		object_method(theattr,gensym("setmethod"),USESYM(set),setter); }while(0)
 
 
 /**
@@ -998,9 +998,9 @@ BEGIN_USING_C_LINKAGE
 	@param	flags			Any flags you wish to add to this attribute, as defined in #e_max_attrflags.
 */
 #define CLASS_ATTR_ADD_FLAGS(c,attrname,flags) \
-	{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
+	do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
 		long oldflags = object_method(theattr,gensym("getflags")); \
-		object_method(theattr,gensym("setflags"),oldflags|(flags)); }
+		object_method(theattr,gensym("setflags"),oldflags|(flags)); }while(0)
 
 
 /**
@@ -1012,9 +1012,9 @@ BEGIN_USING_C_LINKAGE
 	@param	flags			Any flags you wish to remove from this attribute, as defined in #e_max_attrflags.
 */
 #define CLASS_ATTR_REMOVE_FLAGS(c,attrname,flags) \
-	{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
+	do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
 		long oldflags = object_method(theattr,gensym("getflags")); \
-		object_method(theattr,gensym("setflags"),oldflags&(~(flags))); }
+		object_method(theattr,gensym("setflags"),oldflags&(~(flags))); }while(0)
 
 
 /**
@@ -1030,8 +1030,8 @@ BEGIN_USING_C_LINKAGE
 	@see	CLASS_ATTR_MIN
 */
 #define CLASS_ATTR_FILTER_MIN(c,attrname,minval) \
-	{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
-		attr_addfilter_clip(theattr,minval,0,1,0); }
+	do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
+		attr_addfilter_clip(theattr,minval,0,1,0); }while(0)
 
 
 /**
@@ -1047,8 +1047,8 @@ BEGIN_USING_C_LINKAGE
 	@see	CLASS_ATTR_MAX
 */
 #define CLASS_ATTR_FILTER_MAX(c,attrname,maxval) \
-	{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
-		attr_addfilter_clip(theattr,0,maxval,0,1); }
+	do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
+		attr_addfilter_clip(theattr,0,maxval,0,1); }while(0)
 
 
 /**
@@ -1063,8 +1063,8 @@ BEGIN_USING_C_LINKAGE
 	@see 
 */
 #define CLASS_ATTR_FILTER_CLIP(c,attrname,minval,maxval) \
-	{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
-		attr_addfilter_clip(theattr,minval,maxval,1,1); }
+	do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
+		attr_addfilter_clip(theattr,minval,maxval,1,1); }while(0)
 
 
 /**
@@ -1076,12 +1076,12 @@ BEGIN_USING_C_LINKAGE
 	@param	aliasname		The name of the new alias attribute.
 */
 #define CLASS_ATTR_ALIAS(c,attrname,aliasname) \
-	{	t_object *thealias; \
+	do{	t_object *thealias; \
 		t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); \
 		thealias = object_clone(theattr); \
 		object_method(thealias,USESYM(setname),gensym(aliasname)); \
 		class_addattr(c,thealias); \
-		CLASS_ATTR_ATTR_PARSE(c,aliasname,"alias",USESYM(symbol),0,attrname); }
+		CLASS_ATTR_ATTR_PARSE(c,aliasname,"alias",USESYM(symbol),0,attrname); }while(0)
 
 
 
@@ -1104,7 +1104,7 @@ BEGIN_USING_C_LINKAGE
 	@param	parsestr		A C-string, which will be parsed into an array of atoms to set the initial value.
 */
 #define CLASS_ATTR_DEFAULT(c,attrname,flags,parsestr) \
-	{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"default",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); }
+	do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"default",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); }while(0)
 
 
 /**
@@ -1142,7 +1142,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_SAVE
 */
 #define CLASS_ATTR_DEFAULT_SAVE(c,attrname,flags,parsestr) \
-	{ CLASS_ATTR_DEFAULT(c,attrname,flags,parsestr); CLASS_ATTR_SAVE(c,attrname,flags); }
+	do{ CLASS_ATTR_DEFAULT(c,attrname,flags,parsestr); CLASS_ATTR_SAVE(c,attrname,flags); }while(0)
 
 
 /**
@@ -1159,7 +1159,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@param	parsestr		A C-string, which will be parsed into an array of atoms to set the initial value.
 */
 #define CLASS_ATTR_DEFAULTNAME(c,attrname,flags,parsestr) \
-	{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"defaultname",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); }
+	do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"defaultname",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); }while(0)
 
 
 /**
@@ -1174,7 +1174,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_SAVE
 */
 #define CLASS_ATTR_DEFAULTNAME_SAVE(c,attrname,flags,parsestr) \
-	{ CLASS_ATTR_DEFAULTNAME(c,attrname,flags,parsestr); CLASS_ATTR_SAVE(c,attrname,flags); }
+	do{ CLASS_ATTR_DEFAULTNAME(c,attrname,flags,parsestr); CLASS_ATTR_SAVE(c,attrname,flags); }while(0)
 
 
 /**
@@ -1191,7 +1191,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_FILTER_CLIP
 */
 #define CLASS_ATTR_MIN(c,attrname,flags,parsestr) \
-  { t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"min",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); } 
+  do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"min",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); }while(0)
 
 
 /**
@@ -1208,7 +1208,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_FILTER_CLIP
 */
 #define CLASS_ATTR_MAX(c,attrname,flags,parsestr) \
-  { t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"max",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); } 
+  do{ t_object *theattr=(t_object *)class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"max",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); }while(0)
 
 
 // useful attr attr macros for UI objects
@@ -1238,7 +1238,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_PAINT
 */
 #define CLASS_ATTR_DEFAULT_PAINT(c,attrname,flags,parsestr) \
-	{ CLASS_ATTR_DEFAULT(c,attrname,flags,parsestr); CLASS_ATTR_PAINT(c,attrname,flags); }
+	do{ CLASS_ATTR_DEFAULT(c,attrname,flags,parsestr); CLASS_ATTR_PAINT(c,attrname,flags); }while(0)
 
 
 /**
@@ -1254,7 +1254,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_SAVE
 */
 #define CLASS_ATTR_DEFAULT_SAVE_PAINT(c,attrname,flags,parsestr) \
-	{ CLASS_ATTR_DEFAULT(c,attrname,flags,parsestr); CLASS_ATTR_SAVE(c,attrname,flags); CLASS_ATTR_PAINT(c,attrname,flags); }
+	do{ CLASS_ATTR_DEFAULT(c,attrname,flags,parsestr); CLASS_ATTR_SAVE(c,attrname,flags); CLASS_ATTR_PAINT(c,attrname,flags); }while(0)
 
 
 /**
@@ -1270,7 +1270,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_SAVE
 */	
 #define CLASS_ATTR_DEFAULTNAME_PAINT(c,attrname,flags,parsestr) \
-	{ CLASS_ATTR_DEFAULTNAME(c,attrname,flags,parsestr); CLASS_ATTR_PAINT(c,attrname,flags); }
+	do{ CLASS_ATTR_DEFAULTNAME(c,attrname,flags,parsestr); CLASS_ATTR_PAINT(c,attrname,flags); }while(0)
 
 
 /**
@@ -1286,7 +1286,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_SAVE
 */
 #define CLASS_ATTR_DEFAULTNAME_SAVE_PAINT(c,attrname,flags,parsestr) \
-	{ CLASS_ATTR_DEFAULTNAME(c,attrname,flags,parsestr); CLASS_ATTR_SAVE(c,attrname,flags); CLASS_ATTR_PAINT(c,attrname,flags); }
+	do{ CLASS_ATTR_DEFAULTNAME(c,attrname,flags,parsestr); CLASS_ATTR_SAVE(c,attrname,flags); CLASS_ATTR_PAINT(c,attrname,flags); }while(0)
 
 
 // useful attr attr macros for inpector properties
@@ -1347,7 +1347,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_ENUMINDEX
 */
 #define CLASS_ATTR_ENUM(c,attrname,flags,parsestr) \
-	{ CLASS_ATTR_STYLE(c,attrname,flags,"enum"); CLASS_ATTR_ATTR_PARSE(c,attrname,"enumvals",USESYM(atom),flags,parsestr); }
+	do{ CLASS_ATTR_STYLE(c,attrname,flags,"enum"); CLASS_ATTR_ATTR_PARSE(c,attrname,"enumvals",USESYM(atom),flags,parsestr); }while(0)
 
 
 /**
@@ -1368,35 +1368,35 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave",USESYM(long),flags,"1")
 	@see	CLASS_ATTR_ENUM
 */
 #define CLASS_ATTR_ENUMINDEX(c,attrname,flags,parsestr) \
-	{ CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); CLASS_ATTR_ATTR_PARSE(c,attrname,"enumvals",USESYM(atom),flags,parsestr); }
+	do{ CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); CLASS_ATTR_ATTR_PARSE(c,attrname,"enumvals",USESYM(atom),flags,parsestr); }while(0)
 
 // localizable versions
 #define CLASS_ATTR_ENUMINDEX2(c,attrname,flags,enum1,enum2) \
-{ t_atom aaa[2]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); \
-CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,2,aaa); }
+do{ t_atom aaa[2]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); \
+CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,2,aaa); }while(0)
 		
 #define CLASS_ATTR_ENUMINDEX3(c,attrname,flags,enum1,enum2,enum3) \
-{ t_atom aaa[3]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
-CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,3,aaa); }
+do{ t_atom aaa[3]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
+CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,3,aaa); }while(0)
 		
 #define CLASS_ATTR_ENUMINDEX4(c,attrname,flags,enum1,enum2,enum3,enum4) \
-{ t_atom aaa[4]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3)); atom_setsym(aaa+3,gensym_tr(enum4));\
-CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,4,aaa); }
+do{ t_atom aaa[4]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3)); atom_setsym(aaa+3,gensym_tr(enum4));\
+CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,4,aaa); }while(0)
 		
 #define CLASS_ATTR_ENUMINDEX5(c,attrname,flags,enum1,enum2,enum3,enum4,enum5) \
-{ t_atom aaa[5]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
+do{ t_atom aaa[5]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
 atom_setsym(aaa+3,gensym_tr(enum4)); atom_setsym(aaa+4,gensym_tr(enum5));\
-CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,5,aaa); }
+CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,5,aaa); }while(0)
 		
 #define CLASS_ATTR_ENUMINDEX6(c,attrname,flags,enum1,enum2,enum3,enum4,enum5,enum6) \
-{ t_atom aaa[6]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
+do{ t_atom aaa[6]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
 atom_setsym(aaa+3,gensym_tr(enum4)); atom_setsym(aaa+4,gensym_tr(enum5)); atom_setsym(aaa+5,gensym_tr(enum6));\
-CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,6,aaa); }
+CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,6,aaa); }while(0)
 		
 #define CLASS_ATTR_ENUMINDEX7(c,attrname,flags,enum1,enum2,enum3,enum4,enum5,enum6,enum7) \
-{ t_atom aaa[7]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
+do{ t_atom aaa[7]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
 atom_setsym(aaa+3,gensym_tr(enum4)); atom_setsym(aaa+4,gensym_tr(enum5)); atom_setsym(aaa+5,gensym_tr(enum6)); atom_setsym(aaa+6,gensym_tr(enum7));\
-CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,7,aaa); }
+CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,7,aaa); }while(0)
 
 /**
 	Add a new attribute to the specified attribute to specify a category to which the attribute is assigned
@@ -1429,7 +1429,7 @@ CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals",USESYM(atom),flags,7,aaa); }
 	@see	CLASS_ATTR_LABEL
 */
 #define CLASS_ATTR_STYLE_LABEL(c,attrname,flags,stylestr,labelstr) \
-	{ CLASS_ATTR_ATTR_PARSE(c,attrname,"style",USESYM(symbol),flags,stylestr); CLASS_ATTR_ATTR_FORMAT(c,attrname,"label",USESYM(symbol),flags,"s",gensym_tr(labelstr)); }	
+	do{ CLASS_ATTR_ATTR_PARSE(c,attrname,"style",USESYM(symbol),flags,stylestr); CLASS_ATTR_ATTR_FORMAT(c,attrname,"label",USESYM(symbol),flags,"s",gensym_tr(labelstr)); }while(0)
 
 
 /**
@@ -1500,7 +1500,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"basic",USESYM(long),flags,"1")
 	@endcode
 */
 #define CLASS_METHOD_ATTR_PARSE(c,methodname,attrname,type,flags,parsestring) \
-	{	t_hashtab *methods=NULL; \
+	do{	t_hashtab *methods=NULL; \
 		t_object *m=NULL; \
 		methods = (t_hashtab *)class_extra_lookup(c,gensym("methods")); \
 		if (methods) { \
@@ -1508,7 +1508,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"basic",USESYM(long),flags,"1")
 			if (m) \
 				object_addattr_parse(m,attrname,type,flags,parsestring); \
 		} \
-	} 
+	}while(0)
 
 
 /**
@@ -1524,7 +1524,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"basic",USESYM(long),flags,"1")
 	@param		parsestr		A C-string, which will be parsed into an array of atoms to set the legacy value, used by jbox_processlegacydefaults()
  */
 #define CLASS_ATTR_LEGACYDEFAULT(c,legacyattrname,newattrname,flags,parsestr) \
-{ \
+do{ \
 	t_object *theattr = (t_object *)class_attr_get(c,gensym(legacyattrname)); \
 	t_hashtab *legs = NULL; \
 	CLASS_ATTR_ATTR_PARSE(c,legacyattrname,"legacydefault",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); \
@@ -1534,7 +1534,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"basic",USESYM(long),flags,"1")
 		class_extra_store(c, gensym("legacydefaults"), (t_object *)legs); \
 	} \
 	hashtab_store(legs, gensym(legacyattrname), (t_object *)gensym(newattrname)); \
-}
+}while(0)
 
 
 /**
@@ -1546,7 +1546,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"basic",USESYM(long),flags,"1")
 	@param		flags			Any flags you wish to declare for this new attribute, as defined in #e_max_attrflags.
  */
 #define CLASS_ATTR_OBSOLETE(c,attrname,flags) \
-{ \
+do{ \
 	t_object *attr; \
 	attr = (t_object *)class_attr_get(c,gensym(attrname)); \
 	if (!attr) { \
@@ -1555,7 +1555,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"basic",USESYM(long),flags,"1")
 	} \
 	CLASS_ATTR_ATTR_PARSE(c,attrname,"obsolete",USESYM(long),flags,"1"); \
 	CLASS_ATTR_ATTR_PARSE(c,attrname,"invisible",USESYM(long),flags,"1"); \
-}
+}while(0)
 
 
 /**
@@ -1568,10 +1568,10 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"basic",USESYM(long),flags,"1")
 	@param		flags			Any flags you wish to declare for this new attribute, as defined in #e_max_attrflags.
  */
 #define CLASS_ATTR_RENAMED(c,oldname,newname,flags) \
-{ \
+do{ \
 	CLASS_ATTR_OBSOLETE(c,oldname,flags); \
 	CLASS_ATTR_ATTR_PARSE(c,oldname,"renamed",USESYM(symbol),flags,newname); \
-}
+}while(0)
 
 
 /**
@@ -1596,7 +1596,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"introduced",USESYM(symbol),flags,str_tr(versio
 	@param		flags			Any flags you wish to declare for this new attribute, as defined in #e_max_attrflags.
  */
 #define CLASS_METHOD_OBSOLETE(c,methodname,flags) \
-{	t_hashtab *methods=NULL; \
+do{	t_hashtab *methods=NULL; \
 	t_object *m=NULL; \
 	methods = (t_hashtab *)class_extra_lookup(c,gensym("methods")); \
 	if (methods) { \
@@ -1612,7 +1612,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"introduced",USESYM(symbol),flags,str_tr(versio
 			object_addattr_parse(m,"obsolete",USESYM(long),flags,"1"); \
 		} \
 	} \
-}
+}while(0)
 
 /**
 	Add a new attribute to the specified method to flag a method as renamed.
@@ -1624,10 +1624,10 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"introduced",USESYM(symbol),flags,str_tr(versio
 	@param		flags			Any flags you wish to declare for this new attribute, as defined in #e_max_attrflags.
  */
 #define CLASS_METHOD_RENAMED(c,oldname,newname,flags) \
-{ \
+do{ \
 	CLASS_METHOD_OBSOLETE(c,oldname,flags); \
 	CLASS_METHOD_ATTR_PARSE(c,oldname,"renamed",USESYM(symbol),flags,newname); \
-}
+}while(0)
 
 /**
 	Add a new attribute to the specified method to indicate in which version the method was introduced.
@@ -1658,7 +1658,7 @@ CLASS_METHOD_ATTR_PARSE(c,methodname,"introduced",USESYM(symbol),flags,str_tr(ve
 	@see		CLASS_ATTR_DEFAULT
 */
 #define OBJ_ATTR_DEFAULT(x,attrname,flags,parsestr) \
-	{ t_object *theattr=(t_object *)object_attr_get(x,gensym(attrname)); OBJ_ATTR_ATTR_PARSE(x,attrname,"default",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); }
+	do{ t_object *theattr=(t_object *)object_attr_get(x,gensym(attrname)); OBJ_ATTR_ATTR_PARSE(x,attrname,"default",(t_symbol *)object_method(theattr,USESYM(gettype)),flags,parsestr); }while(0)
 
 
 /**
@@ -1685,7 +1685,7 @@ CLASS_METHOD_ATTR_PARSE(c,methodname,"introduced",USESYM(symbol),flags,str_tr(ve
 	@see		CLASS_ATTR_DEFAULT_SAVE
 */
 #define OBJ_ATTR_DEFAULT_SAVE(x,attrname,flags,parsestr) \
-	{ OBJ_ATTR_DEFAULT(x,attrname,flags,parsestr); OBJ_ATTR_SAVE(x,attrname,flags); }
+	do{ OBJ_ATTR_DEFAULT(x,attrname,flags,parsestr); OBJ_ATTR_SAVE(x,attrname,flags); }while(0)
 
 // used to transition former CLASS_ATTR_SAVE attrs mistakenly declared
 
@@ -1726,7 +1726,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"dontsave",USESYM(long),flags,"1")
 	@see		CLASS_STICKY_ATTR_CLEAR
 */
 #define CLASS_STICKY_ATTR(c,name,flags,parsestr) \
-	{ t_object *attr = attribute_new_parse(name,NULL,flags,parsestr); class_sticky(c,gensym("sticky_attr"),gensym(name),attr); }
+	do{ t_object *attr = attribute_new_parse(name,NULL,flags,parsestr); class_sticky(c,gensym("sticky_attr"),gensym(name),attr); }while(0)
 
 
 /**
@@ -1740,7 +1740,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"dontsave",USESYM(long),flags,"1")
 #define CLASS_STICKY_ATTR_CLEAR(c,name) class_sticky_clear(c,gensym("sticky_attr"),name?gensym(name):NULL)
 
 #define CLASS_STICKY_CATEGORY(c,flags,name) \
-{ t_object *attr = attribute_new_format("category",NULL,flags,"s",gensym_tr(name)); class_sticky(c,gensym("sticky_attr"),gensym("category"),attr); }
+do{ t_object *attr = attribute_new_format("category",NULL,flags,"s",gensym_tr(name)); class_sticky(c,gensym("sticky_attr"),gensym("category"),attr); }while(0)
 
 #define CLASS_STICKY_CATEGORY_CLEAR(c) class_sticky_clear(c,gensym("sticky_attr"),gensym("category"))
 
@@ -1769,7 +1769,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"dontsave",USESYM(long),flags,"1")
 	@see		CLASS_STICKY_METHOD_CLEAR
 */
 #define CLASS_STICKY_METHOD(c,name,flags,parsestr) \
-	{ t_object *attr = attribute_new_parse(name,NULL,flags,parsestr); class_sticky(c,gensym("sticky_method"),gensym(name),attr); }
+	do{ t_object *attr = attribute_new_parse(name,NULL,flags,parsestr); class_sticky(c,gensym("sticky_method"),gensym(name),attr); }while(0)
 
 
 /**

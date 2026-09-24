@@ -180,11 +180,11 @@ void style_handlemenu(t_object *context, long itemindex, t_symbol **current);			
 	@see						class_attr_setstyle() is the lower level function used to provide the style part of the attribute definition.
 */
 #define CLASS_ATTR_STYLE_RGBA_NOSAVE(c,attrname,flags,structname,structmember,label) \
-{	CLASS_ATTR_DOUBLE_ARRAY(c,attrname,flags,structname,structmember,4); \
+do{	CLASS_ATTR_DOUBLE_ARRAY(c,attrname,flags,structname,structmember,4); \
 	CLASS_ATTR_ACCESSORS(c,attrname,NULL,jgraphics_attr_setrgba); \
 	CLASS_ATTR_PAINT(c,attrname,0); \
 	CLASS_ATTR_STYLE_LABEL(c,attrname,0,"rgba",label); \
-	class_attr_setstyle(c,attrname); }
+	class_attr_setstyle(c,attrname); }while(0)
 
 
 /**	Define an RGBA style attribute with standard settings.
@@ -200,8 +200,8 @@ void style_handlemenu(t_object *context, long itemindex, t_symbol **current);			
 	@see						class_attr_setstyle() is the lower level function used to provide the style part of the attribute definition.
 */
 #define CLASS_ATTR_STYLE_RGBA(c,attrname,flags,structname,structmember,label) \
-{	CLASS_ATTR_STYLE_RGBA_NOSAVE(c,attrname,flags,structname,structmember,label) \
-	CLASS_ATTR_SAVE(c,attrname,0); }
+do{	CLASS_ATTR_STYLE_RGBA_NOSAVE(c,attrname,flags,structname,structmember,label); \
+	CLASS_ATTR_SAVE(c,attrname,0); }while(0)
 
 
 /**	Define an RGBA style attribute with standard settings.
@@ -218,8 +218,8 @@ void style_handlemenu(t_object *context, long itemindex, t_symbol **current);			
 	@see						class_attr_setstyle() is the lower level function used to provide the style part of the attribute definition.
 */
 #define CLASS_ATTR_STYLE_RGBA_PREVIEW(c,attrname,flags,structname,structmember,label,previewtype) \
-{	CLASS_ATTR_STYLE_RGBA(c,attrname,flags,structname,structmember,label); \
-	CLASS_ATTR_ATTR_PARSE(c,attrname,"preview",USESYM(symbol),0,previewtype); }
+do{	CLASS_ATTR_STYLE_RGBA(c,attrname,flags,structname,structmember,label); \
+	CLASS_ATTR_ATTR_PARSE(c,attrname,"preview",USESYM(symbol),0,previewtype); }while(0)
 
 
 /**	Define an unsaved alias.
@@ -230,9 +230,9 @@ void style_handlemenu(t_object *context, long itemindex, t_symbol **current);			
 	@see 'jslider' example project in the SDK.
 */
 #define CLASS_ATTR_STYLE_ALIAS_NOSAVE(c,attrname,aliasname) \
-{	class_attr_style_alias(c,attrname,aliasname,false); \
+do{	class_attr_style_alias(c,attrname,aliasname,false); \
     CLASS_ATTR_INVISIBLE(c,aliasname,0); \
-    CLASS_ATTR_PAINT(c,aliasname,0); }
+    CLASS_ATTR_PAINT(c,aliasname,0); }while(0)
 
 
 /**	Define a Max 5/6 saved compatibility alias
@@ -242,10 +242,10 @@ void style_handlemenu(t_object *context, long itemindex, t_symbol **current);			
 	@param		aliasname	The name of the alias.
 */
 #define CLASS_ATTR_STYLE_ALIAS_COMPATIBILITY(c,attrname,aliasname) \
-{	class_attr_style_alias(c,attrname,aliasname,false); \
+do{	class_attr_style_alias(c,attrname,aliasname,false); \
 	CLASS_ATTR_INVISIBLE(c,aliasname,0); \
 	CLASS_ATTR_SAVE(c,aliasname,0); \
-	CLASS_ATTR_PAINT(c,aliasname,0); }
+	CLASS_ATTR_PAINT(c,aliasname,0); }while(0)
 
 
 /**	Define a Max 4 legacy RGB attribute alias
@@ -256,10 +256,10 @@ void style_handlemenu(t_object *context, long itemindex, t_symbol **current);			
 	@see 'jslider' example project in the SDK.
 */
 #define CLASS_ATTR_STYLE_ALIAS_RGBA_LEGACY(c,attrname,aliasname) \
-{	class_attr_style_alias(c,attrname,aliasname,false); \
+do{	class_attr_style_alias(c,attrname,aliasname,false); \
 	CLASS_ATTR_INVISIBLE(c,aliasname,0); \
 	CLASS_ATTR_PAINT(c,aliasname,0); \
-	CLASS_ATTR_ACCESSORS(c,aliasname,NULL,jgraphics_attr_setrgb_alias); }
+	CLASS_ATTR_ACCESSORS(c,aliasname,NULL,jgraphics_attr_setrgb_alias); }while(0)
 
 
 END_USING_C_LINKAGE
