@@ -1737,7 +1737,7 @@ CLASS_ATTR_ATTR_PARSE(c,attrname,"dontsave",USESYM(long),flags,"1")
 	@param		name			The name of the sticky attribute as a C-string.
 	@see		CLASS_STICKY_ATTR
 */
-#define CLASS_STICKY_ATTR_CLEAR(c,name) class_sticky_clear(c,gensym("sticky_attr"),name?gensym(name):NULL)
+#define CLASS_STICKY_ATTR_CLEAR(c,name) class_sticky_clear(c,gensym("sticky_attr"),(name!=NULL)?gensym(name):NULL)
 
 #define CLASS_STICKY_CATEGORY(c,flags,name) \
 do{ t_object *attr = attribute_new_format("category",NULL,flags,"s",gensym_tr(name)); class_sticky(c,gensym("sticky_attr"),gensym("category"),attr); }while(0)
