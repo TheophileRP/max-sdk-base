@@ -1912,17 +1912,17 @@ t_max_err jgraphics_attr_setrgb_alias(t_object *x, t_object *attr, long argc, t_
 	@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 */
 #define CLASS_ATTR_RGBA(c,attrname,flags,structname,structmember) \
-	{	CLASS_ATTR_DOUBLE_ARRAY(c,attrname,flags,structname,structmember,4); \
+	do{	CLASS_ATTR_DOUBLE_ARRAY(c,attrname,flags,structname,structmember,4); \
 		CLASS_ATTR_ACCESSORS(c,attrname,NULL,jgraphics_attr_setrgba); \
-		CLASS_ATTR_PAINT(c,attrname,0); }
+		CLASS_ATTR_PAINT(c,attrname,0); }while(0)
 
 
 // for internal use only?
 #define CLASS_ATTR_RGBA_LEGACY(c,attrname,aliasname,flags,structname,structmember) \
-	{	CLASS_ATTR_RGBA(c,attrname,flags,structname,structmember); \
+	do{	CLASS_ATTR_RGBA(c,attrname,flags,structname,structmember); \
 		CLASS_ATTR_ALIAS(c,attrname,aliasname); \
 		CLASS_ATTR_INVISIBLE(c,aliasname,0); \
-		CLASS_ATTR_ACCESSORS(c,aliasname,NULL,jgraphics_attr_setrgb_alias); }
+		CLASS_ATTR_ACCESSORS(c,aliasname,NULL,jgraphics_attr_setrgb_alias); }while(0)
 
 
 /**
